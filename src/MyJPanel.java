@@ -21,7 +21,7 @@ public class MyJPanel extends JPanel implements MouseMotionListener{
 		g.drawRect(centerX, centerY, square.getShapeWidth(), square.getShapeHeight());
 		// TODO Draw square and fill it with random color decided by method getRandomColor()
 		g.setColor(square.getRandomColor());
-        g.fillRect(0, 0, 50, 50);
+        g.fillRect(centerX, centerY, square.getShapeWidth(), square.getShapeHeight());
 		
 	}
 
