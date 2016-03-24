@@ -9,22 +9,27 @@ import javax.swing.*;
 public class MyJPanel extends JPanel implements MouseMotionListener{
 	
 	private Square square = new Square(100);
+	int centerX;
+	int centerY;
 	
 	public MyJPanel(){
 		addMouseMotionListener(this);
 	}
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
+		
+		g.drawRect(centerX, centerY, square.getShapeWidth(), square.getShapeHeight());
 		// TODO Draw square and fill it with random color decided by method getRandomColor()
-		// You should use fillRect()
+		g.setColor(square.getRandomColor());
+        g.fillRect(0, 0, 50, 50);
 		
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Get mouse dragged position and change suqare's position
-		centerX = e.getX();
-		centerY = e.getY();
+		centerX = square.getCenterX(e.getX() );
+		centerY = square.getCenterY( e.getY() );
 		repaint();
 	}
 
